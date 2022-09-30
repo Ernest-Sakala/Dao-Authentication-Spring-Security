@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head th:replace="fragments ::head_html"></head>
+
+<body>
+  <div class="container-scroller">
+
+    <nav th:replace="fragments ::topNav"></nav>
+
+    <div class="container-fluid page-body-wrapper">
+
+      <div th:replace="fragments ::notificationsNav"></div>
+
+      <nav th:replace="fragments ::leftNav"></nav>
+
+      <div class="main-panel">
+
+        <div class="content-wrapper">
+
+          <div class="main-panel">
+
+            <div class="content-wrapper">
+
+                <div class="row">
+                  <div class="col-md-12 grid-margin">
+                    <div class="row">
+                      <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                        <h3 class="font-weight-bold">Welcome Username</span></h3>
+                        <h6 class="font-weight-normal mb-0">Everything is ready and waiting for your action. You have <span class="text-primary">3 new notifications!</span></h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 grid-margin stretch-card">
+                      <div class="card tale-bg">
+                        <div class="card-people mt-auto">
+                          <img th:src="@{/images/dashboard/people.svg}" alt="farmer">
+                        </div>
+                      </div>
+                  </div>
+                    <div class="col-md-6 grid-margin transparent">
+                      <div class="row">
+                        <div class="col-md-6 mb-4 stretch-card transparent">
+                          <div class="card card-tale">
+                            <div class="card-body">
+                              <p class="mb-4">Total Products</p>
+                              <p class="fs-30 mb-2">4006</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 mb-4 stretch-card transparent">
+                          <div class="card card-dark-blue">
+                            <div class="card-body">
+                              <p class="mb-4">Total Posts</p>
+                              <p class="fs-30 mb-2">61344</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
+                          <div class="card card-light-blue">
+                            <div class="card-body">
+                              <p class="mb-4">Total Connections</p>
+                              <p class="fs-30 mb-2">34040</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 stretch-card transparent">
+                          <div class="card card-light-danger">
+                            <div class="card-body">
+                              <p class="mb-4">Total Notifications</p>
+                              <p class="fs-30 mb-2">47033</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <p class="card-title mb-0">Products</p>
+                  <div class="table-responsive">
+                    <table class="table table-striped table-borderless">
+                      <thead>
+                        <tr>
+                          <th>Product Name</th>
+                          <th>Date</th>
+                          <th>Category</th>
+                          <th>Type</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Search Engine Marketing</td>
+                          <td>21 Sep 2018</td>
+                          <td class="font-weight-medium"><div class="badge badge-success">Completed</div></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>Search Engine Optimization</td>
+                          <td>13 Jun 2018</td>
+                          <td class="font-weight-medium"><div class="badge badge-success">Completed</div></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>Display Advertising</td>
+                          <td>28 Sep 2018</td>
+                          <td class="font-weight-medium"><div class="badge badge-warning">Pending</div></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>Pay Per Click Advertising</td>
+                          <td>30 Jun 2018</td>
+                          <td class="font-weight-medium"><div class="badge badge-warning">Pending</div></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>E-Mail Marketing</td>
+                          <td>01 Nov 2018</td>
+                          <td class="font-weight-medium"><div class="badge badge-danger">Cancelled</div></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>Referral Marketing</td>
+                          <td>20 Mar 2018</td>
+                          <td class="font-weight-medium"><div class="badge badge-warning">Pending</div></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>Social media marketing</td>
+                          <td>26 Oct 2018</td>
+                          <td class="font-weight-medium"><div class="badge badge-success">Completed</div></td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+                <div class="row">
+                  <div class="col-md-12 grid-margin stretch-card">
+                    <div class="card">
+                      <div class="card-body">
+                        <p class="card-title">Connections</p>
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="table-responsive">
+                              <table id="example" class="display expandable-table" style="width:100%">
+                                <thead>
+                                  <tr>
+                                    <th>Connection ID</th>
+                                    <th>Name</th>
+                                    <th>Buyer Type type</th>
+                                    <th>Date</th>
+                                    <th>Something</th>
+                                    <th>Status</th>
+                                    <th>Updated at</th>
+                                    <th></th>
+                                  </tr>
+                                </thead>
+                            </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Edit Modal -->
+  <div class="modal fade" id="editModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Your Profile</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+<!--          &lt;!&ndash; Floating Labels Form &ndash;&gt;-->
+<!--          <form th:action="@{/user/info/(id=${user.id})}" th:object="${user}" method="put" class="row g-3">-->
+<!--            <div class="col-md-12">-->
+<!--              <div class="form">-->
+<!--                <label for="usernameEdit">Username</label>-->
+<!--                <input type="text" th:href="*{username}" class="form-control" id="usernameEdit" name="title" required>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-6">-->
+<!--              <div class="form">-->
+<!--                <label for="phoneEdit">Phone</label>-->
+<!--                <input type="text" th:href="*{phone}" class="form-control" id="phoneEdit" name="author" required>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-6">-->
+<!--              <div class="form">-->
+<!--                <label for="locationEdit">Location</label>-->
+<!--                <input type="text" th:href="*{location}" class="form-control" id="locationEdit" name="category" required>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-6">-->
+<!--              <div class="form">-->
+<!--                <label for="emailEdit">Email</label>-->
+<!--                <input type="text" th:href="*{email}" class="form-control" id="emailEdit" name="category" required>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-6">-->
+<!--              <div class="form">-->
+<!--                <label for="passwordEdit">Password</label>-->
+<!--                <input type="text" th:href="*{password}" class="form-control" id="passwordEdit" name="category" required>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+<!--              <button type="submit" class="btn btn-success">Update</button>-->
+<!--              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>-->
+<!--            </div>-->
+<!--          </form>-->
+<!--          &lt;!&ndash; End floating Labels Form &ndash;&gt;-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Edit Modal-->
+
+<footer th:replace="fragments ::footer"></footer>
+</body>
+
+</html>

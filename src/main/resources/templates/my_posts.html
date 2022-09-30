@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head th:replace="fragments :: head_html"></head>
+
+<body>
+    <div class="container-scroller">
+
+      <nav th:replace="topNav"></nav>
+
+        <div class="container-fluid page-body-wrapper">
+
+            <div th:replace="notificationsNav"></div>
+
+            <nav th:replace="fragments :: leftNav"></nav>
+
+            <div class="main-panel">
+
+                <div class="content-wrapper">
+
+                    <div class="row">
+                        <div class="col-md-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="card-title mb-0">Products</p>
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-borderless">
+                                            <thead>
+                                            <tr>
+                                                <th>Title</th>
+                                                <th>Farmer</th>
+                                                <th>Product</th>
+                                                <th>Price</th>
+                                                <th>Location</th>
+                                                <th>Date</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr th:each="post: ${post}">
+                                                <td th:text="${post.title}"></td>
+                                                <td th:text="${post.farmer}"></td>
+                                                <td th:text="${post.product}"></td>
+                                                <td th:text="${post.price}"></td>
+                                                <td th:text="${post.location}"></td>
+                                                <td th:text="${post.createdAt}"></td>
+                                                <td>
+                                                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                                        <a th:href="@{/my_posts/edit/{id} (id=${post.id})}" class="btn btn-warning" id="edit">Edit</a>
+                                                        <a th:href="@{/my_posts/{id} (id=${post.id})}" class="btn btn-danger" id="delete">Delete</a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Post</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Floating Labels Form -->
+                    <form th:action="@{/my_posts/{id} (id=${post.id})}" th:object="${post}" method="post" class="row g-3">
+                        <div class="col-md-12">
+                            <div class="form">
+                                <label for="titleEdit">Title</label>
+                                <input type="text" th:href="*{title}" class="form-control" id="titleEdit" name="title" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form">
+                                <label for="farmerEdit">Farmer</label>
+                                <input type="text" th:href="*{farmer}" class="form-control" id="farmerEdit" name="author" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form">
+                                <label for="priceEdit">Price</label>
+                                <input type="text" th:href="*{price}" class="form-control" id="priceEdit" name="category" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form">
+                                <label for="locationEdit">Location</label>
+                                <input type="text" th:href="*location}" class="form-control" id="locationEdit" name="category" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form">
+                                <label for="productEdit">Product</label>
+                                <input type="text" th:href="*{product}" class="form-control" id="productEdit" name="category" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">Update</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                    <!-- End floating Labels Form -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Edit Modal-->
+
+    <!-- Add Modal -->
+    <div class="modal fade" id="addModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Floating Labels Form -->
+                    <form th:action="@{/my_posts}" th:object="${post}" method="post" class="row g-3">
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <div class="form">
+                                    <label for="title">Title</label>
+                                    <input type="text" th:href="*{title}" class="form-control" id="title" name="title" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form">
+                                    <label for="farmer">Farmer</label>
+                                    <input type="text" th:href="*{farmer}" class="form-control" id="farmer" name="author" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form">
+                                    <label for="price">Price</label>
+                                    <input type="text" th:href="*{price}" class="form-control" id="price" name="category" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form">
+                                    <label for="location">Location</label>
+                                    <input type="text" th:href="*location}" class="form-control" id="location" name="category" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form">
+                                    <label for="product">Product</label>
+                                    <input type="text" th:href="*{product}" class="form-control" id="product" name="category" required>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-success">Save</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- End floating Labels Form -->
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- End Add Modal-->
+
+<footer th:replace="fragments :: footer"></footer>
+</body>
+</html>

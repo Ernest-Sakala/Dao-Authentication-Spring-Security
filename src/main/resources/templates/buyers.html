@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head th:replace="fragments :: head_html"></head>
+
+<body>
+
+    <div class="container-scroller">
+
+        <nav th:replace="topNav"></nav>
+
+        <div class="container-fluid page-body-wrapper">
+
+            <div th:replace="notificationsNav"></div>
+
+            <nav th:replace="fragments :: leftNav"></nav>
+
+            <div class="main-panel">
+
+                <div class="content-wrapper">
+                    <div class="row">
+                        <div class="col-md-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="card-title">Potential Buyers</p>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="table-responsive">
+                                                <table id="example" class="display expandable-table" style="width:100%">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Buyer Type</th>
+                                                        <th>Location</th>
+                                                        <th>Phone Number</th>
+                                                        <th>Connect</th>
+                                                    </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+<footer th:replace="fragments :: footer"></footer>
+</body>
+</html>
